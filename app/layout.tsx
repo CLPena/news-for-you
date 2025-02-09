@@ -3,8 +3,9 @@ import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton, Organizati
 import { ThemeProvider } from '../providers/theme-provider';
 import ClerkProvider from '../providers/clerk-provider';
 import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
 import ThemeSwitch from '@/components/ThemeSwitch';
+import Button from '@/components/Button';
+import './globals.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,18 +30,34 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <ClerkProvider>
             <header className="flex justify-end items-center p-4 gap-4 h-16">
-              <SignedOut>
-                <SignInButton />
-                <SignUpButton />
-              </SignedOut>
-              <SignedIn>
-                <ThemeSwitch />
-                <OrganizationSwitcher />
-                <UserButton />
-              </SignedIn>
+              <div className="flex items-center gap-4 w-full">
+                <SignedOut>
+                <div className="flex items-center justify-center w-full relative">
+                  <h1 className="text-3xl font-bold">News for You</h1>
+                  <div className="absolute right-0 flex items-center gap-4">
+                    <SignInButton>
+                      <Button label="Sign In" />
+                    </SignInButton>
+                    <SignUpButton>
+                      <Button label="Sign Up" />
+                    </SignUpButton>
+                  </div>
+                  </div>
+                </SignedOut>
+                <SignedIn>
+                  <div className="flex items-center justify-between w-full">
+                    <ThemeSwitch />
+                    <h1 className="text-3xl font-bold">News for You</h1>
+                    <div className="flex items-center gap-4">
+                      <OrganizationSwitcher />
+                      <UserButton />
+                    </div>
+                  </div>
+                  </SignedIn>
+              </div>
             </header>
             {children}
           </ClerkProvider>
