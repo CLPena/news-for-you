@@ -4,6 +4,7 @@ import { ThemeProvider } from '../providers/theme-provider';
 import ClerkProvider from '../providers/clerk-provider';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import ThemeSwitch from '@/components/ThemeSwitch';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,6 +37,7 @@ export default function RootLayout({
                 <SignUpButton />
               </SignedOut>
               <SignedIn>
+                <ThemeSwitch />
                 <OrganizationSwitcher />
                 <UserButton />
               </SignedIn>
