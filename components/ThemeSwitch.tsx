@@ -21,11 +21,21 @@ export default function ThemeSwitch() {
                     'aria-checked': isDark
                 }}
                 sx={{
-                    '& .MuiSwitch-track': {
-                        bgcolor: isDark ? '#E5E7EB' : '#374151'
-                    },
-                    '& .MuiSwitch-thumb': {
-                        bgcolor: isDark ? '#FFFFFF' : '#0F172A'
+                    '& .MuiSwitch-switchBase': {
+                        '&.Mui-checked': {
+                            '& + .MuiSwitch-track': {
+                                backgroundColor: '#7F7F7F'
+                            },
+                            '& .MuiSwitch-thumb': {
+                                backgroundColor: '#ffffff'
+                            }
+                        },
+                        '& + .MuiSwitch-track': {
+                            backgroundColor: '#A7A7AB'
+                        },
+                        '& .MuiSwitch-thumb': {
+                            backgroundColor: '#0a0a0a'
+                        }
                     }
                 }}
             />
