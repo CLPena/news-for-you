@@ -19,7 +19,7 @@ export default function Accordion({ title, icon, children }: AccordionProps) {
     return (
         <MuiAccordion 
             sx={{
-                backgroundColor: isDark ? '#171717' : '#ffffff',
+                backgroundColor: isDark ? '#1e1e1e' : '#fafafa',
                 color: isDark ? '#f4f4f5' : '#0a0a0a',
                 boxShadow: 'none',
                 borderTop: isDark ? '1px solid #333333' : '1px solid #e5e5e5',

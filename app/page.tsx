@@ -1,6 +1,7 @@
 import { SignUpButton, SignedIn, SignedOut } from '@clerk/nextjs';
 import InfoPanel from '@/components/InfoPanel';
 import Button from '@/components/Button';
+import NewsContainer from '@/components/NewsContainer';
 import Image from 'next/image';
 import newspaper from '@/public/newspaper.jpg';
 
@@ -19,7 +20,10 @@ export default function Home() {
         </div>
       </SignedOut>
       <SignedIn>
-        <InfoPanel />
+        <div className="flex p-4">
+          <InfoPanel />
+          <NewsContainer category="business" />
+        </div>
       </SignedIn>
     </div>
   );
