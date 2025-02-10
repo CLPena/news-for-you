@@ -2,9 +2,11 @@
 
 import Accordion from '@/components/Accordion';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { UserResource } from '@clerk/types';
 
 interface CategorySelectorProps {
     onSelect: (category: string) => void;
+    user: UserResource | null;
 }
 
 const categories = [
@@ -17,7 +19,9 @@ const categories = [
     'technology'
 ];
 
-export default function CategorySelector({ onSelect }: CategorySelectorProps) {
+export default function CategorySelector({ onSelect, user }: CategorySelectorProps) {
+    const defaultCategory = user?.unsafeMetadata?.preferredCategory as string || 'general';
+
     return (
         <Accordion title="Categories" icon={<ExpandMoreIcon />} defaultExpanded>
             {categories.map(category => (
@@ -29,7 +33,7 @@ export default function CategorySelector({ onSelect }: CategorySelectorProps) {
                             type="radio"
                             name="category"
                             value={category}
-                            defaultChecked={category === 'general'}
+                            defaultChecked={category === defaultCategory}
                             onChange={() => onSelect(category)}
                             className="mr-3"
                         />

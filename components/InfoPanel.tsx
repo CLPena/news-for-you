@@ -20,7 +20,7 @@ export default function InfoPanel({ onCategoryChange }: InfoPanelProps) {
     
     return (
         <aside className="w-[300px]">
-            <CategorySelector onSelect={onCategoryChange} />
+            <CategorySelector onSelect={onCategoryChange} user={user} />
             {isUserLoaded && <UserInfo user={user} icon={<ExpandMoreIcon />} />}
             {isSessionLoaded && <SessionInfo session={session} icon={<ExpandMoreIcon />} />}
             {organization && isOrganizationLoaded && <OrganizationInfo organization={organization} icon={<ExpandMoreIcon />} />}

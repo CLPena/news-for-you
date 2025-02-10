@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { SignUpButton, SignedIn, SignedOut } from '@clerk/nextjs';
+import { useState, useEffect } from 'react';
+import { SignUpButton, SignedIn, SignedOut, useUser } from '@clerk/nextjs';
 import Button from '@/components/Button';
 import NewsContainer from '@/components/NewsContainer';
 import InfoPanel from '@/components/InfoPanel';
@@ -9,10 +9,34 @@ import Image from 'next/image';
 import newspaper from '@/public/newspaper.jpg';
 
 export default function Home() {
+  const { user, isLoaded } = useUser();
   const [selectedCategory, setSelectedCategory] = useState('general');
 
-  const handleCategoryChange = (category: string) => {
+  useEffect(() => {
+    if (isLoaded && user) {
+      const savedCategory = user.unsafeMetadata.preferredCategory as string;
+      if (savedCategory) {
+        setSelectedCategory(savedCategory);
+      }
+    }
+  }, [isLoaded, user]);
+
+  const handleCategoryChange = async (category: string) => {
     setSelectedCategory(category);
+    
+    if (user) {
+      try {
+        const updatedMetadata = {
+          ...user.unsafeMetadata, // Preserve existing metadata
+          preferredCategory: category,
+        };
+        await user.update({
+          unsafeMetadata: updatedMetadata
+        });
+      } catch (err) {
+        console.error('Failed to save category preference:', err);
+      }
+    }
   };
 
   return (
