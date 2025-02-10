@@ -10,14 +10,16 @@ interface AccordionProps {
     title: string;
     icon: ReactNode;
     children: ReactNode;
+    defaultExpanded?: boolean;
 }
 
-export default function Accordion({ title, icon, children }: AccordionProps) {
+export default function Accordion({ title, icon, children, defaultExpanded = false }: AccordionProps) {
     const { theme } = useTheme();
     const isDark = theme === 'dark';
 
     return (
         <MuiAccordion 
+            defaultExpanded={defaultExpanded}
             sx={{
                 backgroundColor: isDark ? '#1e1e1e' : '#fafafa',
                 color: isDark ? '#f4f4f5' : '#0a0a0a',
