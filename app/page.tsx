@@ -10,14 +10,12 @@ import newspaper from '@/public/newspaper.jpg';
 
 export default function Home() {
   const { user, isLoaded } = useUser();
-  const [selectedCategory, setSelectedCategory] = useState('general');
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   useEffect(() => {
     if (isLoaded && user) {
-      const savedCategory = user.unsafeMetadata.preferredCategory as string;
-      if (savedCategory) {
-        setSelectedCategory(savedCategory);
-      }
+      const savedCategory = user.unsafeMetadata?.preferredCategory ?? 'general';
+      setSelectedCategory(savedCategory as string);
     }
   }, [isLoaded, user]);
 
@@ -27,7 +25,7 @@ export default function Home() {
     if (user) {
       try {
         const updatedMetadata = {
-          ...user.unsafeMetadata, // Preserve existing metadata
+          ...user.unsafeMetadata,
           preferredCategory: category,
         };
         await user.update({

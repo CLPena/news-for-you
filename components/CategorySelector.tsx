@@ -6,7 +6,7 @@ import { UserResource } from '@clerk/types';
 
 interface CategorySelectorProps {
     onSelect: (category: string) => void;
-    user: UserResource | null;
+    user: UserResource | null | undefined;
 }
 
 const categories = [

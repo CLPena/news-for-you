@@ -10,7 +10,7 @@ interface Article {
 }
 
 interface NewsContainerProps {
-    category: string;
+    category: string | null;
 }
 
 export default function NewsContainer({ category }: NewsContainerProps) {
@@ -20,7 +20,7 @@ export default function NewsContainer({ category }: NewsContainerProps) {
     useEffect(() => {
         async function fetchNews() {
             try {
-                const url = `/api/news?categories=${category}`;
+                const url = `/api/news?categories=${category || 'general'}`;
                 const response = await fetch(url);
                 if (!response.ok) throw new Error('Failed to fetch news');
                 const data = await response.json();
@@ -31,7 +31,9 @@ export default function NewsContainer({ category }: NewsContainerProps) {
             }
         }
 
-        fetchNews();
+        if (category) {
+            fetchNews();
+        }
     }, [category]);
 
     if (error) return <div>Error: {error}</div>;
