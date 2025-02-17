@@ -1,6 +1,6 @@
 export default function MDXLayout({ children }: { children: React.ReactNode }) {
     return (
-        <article className="mdx-content max-w-3xl mx-auto px-4 py-4">
+        <article className="mdx-content mx-auto px-8 py-4">
             {children}
         </article>
     )

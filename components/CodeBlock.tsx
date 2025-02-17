@@ -16,7 +16,7 @@ export default function CodeBlock({ children, className }: CodeBlockProps) {
     const language = className?.replace(/language-/, '') || 'typescript'
 
     return (
-        <div className="max-w-3xl overflow-x-auto">
+        <div className="overflow-x-auto">
             <Highlight
                 theme={theme === 'dark' ? themes.nightOwl : themes.github}
                 code={children}
