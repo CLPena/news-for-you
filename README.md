@@ -7,6 +7,7 @@ I came into this project with varying levels of experience across the tech stack
 - I'm new to Tailwind CSS.
 - I'm more experienced with React than Next.js, so there was a learning curve to understand some of the nuances.
 - Despite working with Next.js occassionally in my current role, this was my first time building a Next.js application from scratch.
+- I am in the process of learning TypeScript and don't know all the best practices yet.
 - I am rusty implementing mdx documentation without any pre-existing components or formatting, since I've been using Storybook with pre-existing layouts and components for the past five years. It was a fun challenge to implement the documentation from scratch under the time constraint of the project.
 
 ## Favorite Parts

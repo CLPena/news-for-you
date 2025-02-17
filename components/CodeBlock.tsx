@@ -1,6 +1,6 @@
 'use client'
 
-import { Highlight, themes } from "prism-react-renderer"
+import { Highlight, themes, Language } from "prism-react-renderer"
 import { Fira_Code } from 'next/font/google'
 import { useTheme } from 'next-themes'
 
@@ -20,7 +20,7 @@ export default function CodeBlock({ children, className }: CodeBlockProps) {
             <Highlight
                 theme={theme === 'dark' ? themes.nightOwl : themes.github}
                 code={children}
-                language={language as any}
+                language={language as Language}
             >
                 {({ tokens, getLineProps, getTokenProps }) => (
                     <pre className={`${firaCode.className} table w-full`}>
