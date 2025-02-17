@@ -28,7 +28,8 @@ and client rendering. This is crucial for theme switching because the initial th
 state can differ between server and client. By waiting for the first client-side render,
 we avoid visual flickering and ensure the correct theme is displayed.
 
-```typescript:providers/theme-provider.tsx
+```tsx
+// providers/theme-provider.tsx
 'use client'
 
 import * as React from 'react';
@@ -59,7 +60,8 @@ This provider:
 
 Configure your Tailwind CSS settings to support dark mode using the 'class' strategy.
 
-```typescript:tailwind.config.ts
+```tsx
+// tailwind.config.ts
 import type { Config } from "tailwindcss";
 
 export default {
@@ -80,7 +82,8 @@ but you can use any colors you want.
 
 Clerk components handle their theming separately through the `appearance` prop, which we'll configure in the next step.
 
-```css:app/globals.css
+```css
+// app/globals.css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -101,7 +104,8 @@ body {
 Create a custom Clerk provider that responds to theme changes. The `appearance` prop controls
 the theme of Clerk components (for configuration options, see the [Clerk Themes documentation](https://clerk.com/docs/customization/themes)).
 
-```typescript:providers/clerk-provider.tsx
+```tsx
+// providers/clerk-provider.tsx
 'use client'
 
 import { ClerkProvider } from '@clerk/nextjs';
@@ -130,7 +134,8 @@ Now wrap your application with both providers in your root layout. The Theme
 Provider must wrap the Clerk Provider since we're using the `useTheme` hook in
 our Clerk Provider.
 
-```typescript:app/layout.tsx
+```tsx
+// app/layout.tsx
 import { ThemeProvider } from '@/providers/theme-provider'
 import ClerkProvider from '@/providers/clerk-provider'
 
@@ -209,7 +214,7 @@ current theme state and a function to update it. You can use any appropriate int
 to toggle the theme state. You can customize the UI using a button, switch, or toggle component.
 
 The following example uses a button to toggle the theme state.
-```typescript:components/ThemeSwitch.tsx
+```tsx
 'use client';
 
 import { useTheme } from 'next-themes';
