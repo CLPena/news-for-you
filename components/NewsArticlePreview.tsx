@@ -8,14 +8,26 @@ interface NewsArticlePreviewProps {
     articleUrl: string;
 }
 
+function isValidImageUrl(url: string | null): boolean {
+    if (!url) return false;
+    try {
+        new URL(url);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
 export default function NewsArticlePreview({ title, imageUrl, articleUrl }: NewsArticlePreviewProps) {
+    const safeImageUrl = (isValidImageUrl(imageUrl) && imageUrl) || placeholderImage.src;
+        
     return (
         <Link href={articleUrl} target="_blank" rel="noopener noreferrer" 
             className="block bg-white dark:bg-[#1e1e1e] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
         >
             <div className="relative h-48 w-full">
                 <Image
-                    src={imageUrl || placeholderImage}
+                    src={safeImageUrl}
                     alt={title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
