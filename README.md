@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Reflection
+To see the theme switcher guide, please visit `/docs/theme-switcher-guide`.
 
-## Getting Started
+## Learning Experience
 
-First, run the development server:
+I came into this project with varying levels of experience across the tech stack:
+- I'm new to Tailwind CSS.
+- I'm more experienced with React than Next.js, so there was a learning curve to understand some of the nuances.
+- Despite working with Next.js occassionally in my current role, this was my first time building a Next.js application from scratch.
+- I am rusty implementing mdx documentation without any pre-existing components or formatting, since I've been using Storybook with pre-existing layouts and components for the past five years. It was a fun challenge to implement the documentation from scratch under the time constraint of the project.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Favorite Parts
+- While I know it's an "unsafe" implementation, I enjoyed learning about the Clerk user object and how to store user settings in it. Using this, the user's preferred news category persists on reload and log out/in.
+- I really enjoyed learning about and using Clerk's UI components. Being a design system nerd, it was cool to see how Clerk has essentially created a mini component library specializing in authentication and user management. I was especially impressed by the ease of updating themes across these components combining the use of Next.js and Clerk's theme management systems.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Future Enhancements
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+With more time and resources, I would focus on:
 
-## Learn More
+### Overall Improvements
+- Expand theme support beyond light/dark.
+- Create a more thought-out design system including colors, graphics/images, typography, spacing, layout, and components.
+- Implement deeper customization of Clerk's theme system and aligning styles more closely with the custom components
+- Find a more reliable news API that handles image URLs more consistently and is capable to returning more than one category at a time.
+- Create an API to store user preferences and have a separate news curation for a user's different organizations.
 
-To learn more about Next.js, take a look at the following resources:
+### Code Organization and Structure
+- More specific directories organizing reusable components.
+- Implementation of typography components for consistency.
+- Creation of modular styles for easier maintenance and a more cohesive brand identity.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Documentation Presentation
+- Further customize visual presentation, especially for code blocks.
+- Create consistent styling patterns.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Notes on Clerk's Documentation
 
-## Deploy on Vercel
+What Works Well:
+- Clear organization by framework and feature
+- "Learn the Concepts" section effectively caters to different knowledge levels
+- Framework-specific guides provide focused information
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Suggestion for Enhancement:
+- Search functionality in the docs produces results from different SDKs without clear indication; would be great to have an icon to indicate which SDK each result refers to
+- Visual documentation of UI components could be more comprehensive. The current docs only show a static image of certain components. I'd love to see embedded components and interactive playgrounds for each UI component to provide consistent visual examples.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Project Instructions
+- Instructions around making a sign up page were unclear on if the one that comes out of the box with the sign up/sign in buttons would suffice or if it needed to be a custom page
