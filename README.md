@@ -24,6 +24,7 @@ With more time and resources, I would focus on:
 - Implement deeper customization of Clerk's theme system and aligning styles more closely with the custom components
 - Find a more reliable news API that handles image URLs more consistently and is capable to returning more than one category at a time.
 - Create an API to store user preferences and have a separate news curation for a user's different organizations.
+- Add better loading states to prevent visual jitters as the page loads.
 
 ### Code Organization and Structure
 - More specific directories organizing reusable components.
