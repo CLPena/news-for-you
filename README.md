@@ -1,5 +1,7 @@
 # Project Reflection
-To see the theme switcher guide, please visit `/docs/theme-switcher-guide`.
+Deployed application: https://news-for-you-clp.netlify.app
+
+To see the theme switcher guide, please visit https://news-for-you-clp.netlify.app/docs/theme-switcher-guide.
 
 ## Learning Experience
 
@@ -35,6 +37,7 @@ With more time and resources, I would focus on:
 ### Documentation Presentation
 - Further customize visual presentation, especially for code blocks.
 - Create consistent styling patterns.
+- Fix deployment bug that required manual line breaks vs using markdown line breaks.
 
 ## Notes on Clerk's Documentation
 
