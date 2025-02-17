@@ -184,6 +184,9 @@ function ExampleCard() {
 }
 ```
 
+You must manually add the `dark:` prefix to any custom components that you want to
+switch between light and dark themes.
+
 Clerk components will automatically switch between light and dark themes based on your theme state.
 
 ```tsx
@@ -203,8 +206,9 @@ function Header() {
 
 Create a component that toggles between themes. The `useTheme` hook from next-themes provides the
 current theme state and a function to update it. You can use any appropriate interactive component
-to toggle the theme state.
+to toggle the theme state. You can customize the UI using a button, switch, or toggle component.
 
+The following example uses a button to toggle the theme state.
 ```typescript:components/ThemeSwitch.tsx
 'use client';
 
@@ -230,4 +234,6 @@ The key elements for the theme switch implementation are:
 - Toggling between 'light' and 'dark' themes
 - Providing proper ARIA labels for accessibility
 
-You can customize the UI using a button, switch, or toggle component.
+### You're Done!
+
+You've now created a theme switcher that allows your users to toggle between light and dark themes!
