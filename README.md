@@ -36,7 +36,7 @@ With more time and resources, I would focus on:
 
 ### Documentation Presentation
 - Further customize visual presentation, especially for code blocks.
-- Create consistent styling patterns.
+- Create consistent styling patterns. Something is overriding the standard markdown styles. Due to time constraints, I added custom styles for now, but I would like to identify and correct the root cause.
 - Fix deployment bug that required manual line breaks vs using markdown line breaks.
 
 ## Notes on Clerk's Documentation
